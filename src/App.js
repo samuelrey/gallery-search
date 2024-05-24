@@ -1,15 +1,21 @@
 import React, { useState } from 'react';
 import logo from "./logo.svg";
-import otters from "./otters.json";
-import bulldogs from "./bulldogs.json"
 import "./App.css";
 
 const Header = () => {
     return (
         <header className="App-header">
+            <h2>Fieldwire Image Search</h2>
             <img src={logo} className="App-logo" alt="logo" />
         </header>
     )
+}
+
+const galleryUrl = "https://api.imgur.com/3/gallery/search/"
+
+const buildSearchUrl = (query) => {
+    const parametrizedQuery = `&q=${query}`
+    return `${galleryUrl}?${parametrizedQuery}`
 }
 
 const SearchForm = ({setImages}) => {
@@ -17,17 +23,30 @@ const SearchForm = ({setImages}) => {
     
     const handleChange = (e) => {
         setSearchQuery(e.target.value)
-        console.log(searchQuery)
     }
 
     const handleSubmit = (e) => {
-        console.log(searchQuery)
-        if (searchQuery === "otters") {
-            setImages(otters)
-        } else if (searchQuery === "bulldogs") {
-            setImages(bulldogs)
-        } else {
-            setImages([])
+        fetchImages()
+    }
+
+    const fetchImages = async () => {
+        // do not call API for empty strings
+        if (searchQuery.trim().length === 0) {
+            return []
+        }
+
+        const preparedUrl = buildSearchUrl(searchQuery)
+        const headers = {
+            'Authorization': `Client-ID ${process.env.REACT_APP_IMGUR_API_KEY}`
+        }
+        try {
+            const response = await fetch(preparedUrl, {
+                headers: headers,
+            })
+            const data = await response.json()
+            setImages(data.data)
+        } catch (error) {
+            console.log(error)
         }
     }
 
@@ -40,8 +59,8 @@ const SearchForm = ({setImages}) => {
 const ImageContainer = ({images}) => {
     return <div>
         {images.map((image) => {
-            const { src, alt } = image;
-            return <img className="App-image" src={src} alt={alt} />
+            const { link, title } = image;
+            return <img className="App-image" src={link} alt={title} />
         })}
     </div>
 }
