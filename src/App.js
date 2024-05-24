@@ -1,11 +1,18 @@
 import React, { useState } from 'react';
 import logo from "./logo.svg";
-import sample from "./sample.json";
+import otters from "./otters.json";
+import bulldogs from "./bulldogs.json"
 import "./App.css";
 
-function App() {
-    const [loading, setLoading] = useState(false);
-    const [error, setError] = useState(false);
+const Header = () => {
+    return (
+        <header className="App-header">
+            <img src={logo} className="App-logo" alt="logo" />
+        </header>
+    )
+}
+
+const SearchForm = ({setImages}) => {
     const [searchQuery, setSearchQuery] = useState("");
     
     const handleChange = (e) => {
@@ -15,7 +22,34 @@ function App() {
 
     const handleSubmit = (e) => {
         console.log(searchQuery)
+        if (searchQuery === "otters") {
+            setImages(otters)
+        } else if (searchQuery === "bulldogs") {
+            setImages(bulldogs)
+        } else {
+            setImages([])
+        }
     }
+
+    return <div>
+        <input placeholder="Search for an image" onChange={handleChange}/>
+        <button onClick={handleSubmit}>Submit</button>
+    </div>
+}
+
+const ImageContainer = ({images}) => {
+    return <div>
+        {images.map((image) => {
+            const { src, alt } = image;
+            return <img className="App-image" src={src} alt={alt} />
+        })}
+    </div>
+}
+
+function App() {
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState(false);
+    const [images, setImages] = useState([]);
 
     if (loading) {
         return <h2>Loading...</h2>
@@ -26,14 +60,9 @@ function App() {
 
     return (
         <div className="App">
-            <header className="App-header">
-                <img src={logo} className="App-logo" alt="logo" />
-                <p>
-                    <input placeholder="Search for an image" onChange={handleChange}/>
-                    <button onClick={handleSubmit}>Submit</button>
-                </p>
-                <img className="App-link" src={sample.link} alt="silly-otter" />
-            </header>
+            <Header />
+            <SearchForm setImages={setImages}/>
+            <ImageContainer images={images}/>
         </div>
     );
 }
