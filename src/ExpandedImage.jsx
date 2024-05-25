@@ -1,8 +1,7 @@
 import React from "react";
-import { useAppContext } from "./context";
 
-const ExpandedImage = () => {
-  return <img src="https://i.imgur.com/3AFv3aZ.gif" />;
+const ExpandedImage = ({ src, alt }) => {
+    return <img src={src} alt={alt} />;
 };
 
 export default ExpandedImage;

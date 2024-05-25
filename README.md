@@ -25,5 +25,5 @@ See the section about [running tests](https://facebook.github.io/create-react-ap
 
 ## Decision Log
 
-- Transform data from the API to a normalized data structure. The result is the ImageContainer can focus on presentation.
-- Open image in modal on click. The result is that the user can have a larger view of the image and ImageContainer can keep the search results in memory.
+-   Transform data from the API to a normalized data structure. The result is the ImageContainer can focus on presentation.
+-   Open image in modal on click. The result is that the user can have a larger view of the image and ImageContainer can keep the search results in memory.
