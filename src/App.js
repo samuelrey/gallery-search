@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useAppContext } from './context';
 import logo from "./logo.svg";
 import ImageContainer from './ImageContainer';
 import SearchForm from './SearchForm';

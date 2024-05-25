@@ -1,14 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
+import FieldwireImage from "./FieldwireImage";
+import Modal from "./Modal";
 
 const ImageContainer = ({images}) => {
+    const [selectedImage, setSelectedImage] = useState({src: "", alt: ""})
+
     return <div>
         {images.map((image) => {
-            const { src, alt } = image;
-            if (src.includes("mp4")) {
-                return <video className="App-image" src={src} alt={alt} />
-            }
-            return <img className="App-image" src={src} alt={alt} />
+            return <FieldwireImage {...image} />
         })}
+        <Modal image={selectedImage} />
     </div>
 }
 
