@@ -1,16 +1,18 @@
 import React, { useState } from "react";
-import FieldwireImage from "./FieldwireImage";
+import GalleryImage from "./GalleryImage";
 import Modal from "./Modal";
 
-const ImageContainer = ({images}) => {
-    const [selectedImage, setSelectedImage] = useState({src: "", alt: ""})
+const ImageContainer = ({ images }) => {
+  const [selectedImage, setSelectedImage] = useState({ src: "", alt: "" });
 
-    return <div>
-        {images.map((image) => {
-            return <FieldwireImage {...image} />
-        })}
-        <Modal image={selectedImage} />
+  return (
+    <div>
+      {images.map((image) => {
+        return <GalleryImage {...image} setSelectedImage={setSelectedImage} />;
+      })}
+      <Modal image={selectedImage} />
     </div>
-}
+  );
+};
 
-export default ImageContainer
+export default ImageContainer;
