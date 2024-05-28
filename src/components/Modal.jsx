@@ -3,11 +3,11 @@ import React from "react";
 const Modal = ({ image, onClose }) => {
     return (
         <div className="modal-overlay" onClick={onClose}>
-            <div className="modal-content">
+            <button className="close-modal-btn" onClick={onClose}>
+                Close
+            </button>
+            <div className="modal-content" onClick={(e) => e.stopPropagation()}>
                 <img src={image.src} alt={image.alt} />
-                <button className="close-modal-btn" onClick={onClose}>
-                    Close
-                </button>
             </div>
         </div>
     );

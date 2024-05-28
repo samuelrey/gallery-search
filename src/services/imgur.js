@@ -51,4 +51,4 @@ const fetchImages = async (searchQuery) => {
     }
 };
 
-export default fetchImages
+export default fetchImages;
