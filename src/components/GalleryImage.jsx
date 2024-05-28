@@ -12,7 +12,13 @@ const GalleryImage = ({ src, alt, onClick }) => {
         );
     }
     return (
-        <img className="App-image" src={src} alt={alt} onClick={onClick} loading="lazy" />
+        <img
+            className="App-image"
+            src={src}
+            alt={alt}
+            onClick={onClick}
+            loading="lazy"
+        />
     );
 };
 

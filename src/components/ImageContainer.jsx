@@ -10,7 +10,7 @@ const ImageContainer = ({ images }) => {
     const handleImageClick = (image) => {
         setSelectedImage(image);
         openModal();
-    }
+    };
 
     return (
         <div>
@@ -22,9 +22,7 @@ const ImageContainer = ({ images }) => {
                     />
                 );
             })}
-            {isOpen && (
-                <Modal image={selectedImage} onClose={closeModal} />
-            )}
+            {isOpen && <Modal image={selectedImage} onClose={closeModal} />}
         </div>
     );
 };

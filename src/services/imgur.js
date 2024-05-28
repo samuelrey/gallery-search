@@ -38,12 +38,16 @@ const fetchImages = async (searchQuery) => {
         const response = await fetch(preparedUrl, {
             headers: headers,
         });
-        const imgurImages = await response.json();
-        const images = transformImages(imgurImages.data);
-        return images
+        const responseJson = await response.json();
+        if (!responseJson.success) {
+            throw new Error(responseJson.data.error);
+        }
+
+        const images = transformImages(responseJson.data);
+        return images;
     } catch (error) {
         console.log("Imgur API error: ", error);
-        throw error
+        throw error;
     }
 };
 
