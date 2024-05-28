@@ -3,7 +3,7 @@ import React from "react";
 const Modal = ({ image, onClose }) => {
     const { src, alt, isVideo } = image;
     return (
-        <div className="modal-overlay" onClick={onClose}>
+        <div data-testid="modal" className="modal-overlay" onClick={onClose}>
             <button className="modal-close-button" onClick={onClose}>
                 Close
             </button>

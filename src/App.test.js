@@ -22,7 +22,9 @@ test("renders Gallery with initial state", () => {
     render(<App />);
     const gallery = screen.getByTestId("gallery");
     const images = screen.queryAllByRole("img");
+    const modal = screen.queryByTestId("modal");
 
     expect(gallery).toBeInTheDocument();
     expect(images).toHaveLength(1); // the image is the logo in the footer
+    expect(modal).toBeNull();
 });
