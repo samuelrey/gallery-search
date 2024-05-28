@@ -3,7 +3,7 @@ import React, { useState } from "react";
 const galleryUrl = "https://api.imgur.com/3/gallery/search/";
 
 const buildSearchUrl = (query) => {
-    const parametrizedQuery = `&q=${query}`;
+    const parametrizedQuery = `&q=${encodeURIComponent(query)}`;
     return `${galleryUrl}?${parametrizedQuery}`;
 };
 
