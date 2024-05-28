@@ -1,17 +1,8 @@
 import React from "react";
 
-const GalleryImage = ({ src, alt, onClick }) => {
-    if (src.includes("mp4")) {
-        return (
-            <video
-                className="App-image"
-                src={src}
-                alt={alt}
-                onClick={onClick}
-            />
-        );
-    }
-    return (
+const GalleryImage = ({ image, onClick }) => {
+    const { src, alt, isVideo } = image;
+    return !isVideo ? (
         <img
             className="App-image"
             src={src}
@@ -19,6 +10,8 @@ const GalleryImage = ({ src, alt, onClick }) => {
             onClick={onClick}
             loading="lazy"
         />
+    ) : (
+        <video className="App-image" src={src} alt={alt} onClick={onClick} />
     );
 };
 

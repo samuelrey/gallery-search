@@ -17,7 +17,7 @@ const ImageContainer = ({ images }) => {
             {images.map((image) => {
                 return (
                     <GalleryImage
-                        {...image}
+                        image={image}
                         onClick={() => handleImageClick(image)}
                     />
                 );

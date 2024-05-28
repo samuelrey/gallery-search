@@ -9,12 +9,14 @@ const transformImages = (imgurImages) => {
     return imgurImages
         .map((image) => {
             let link;
+            let isVideo = false;
             const { is_album, images, title } = image;
 
             if (is_album) {
                 try {
                     if (images[0].type === "video/mp4") {
                         link = images[0].mp4;
+                        isVideo = true;
                     } else {
                         link = images[0].link;
                     }
@@ -26,7 +28,7 @@ const transformImages = (imgurImages) => {
                 link = image.link;
             }
 
-            return { src: link, alt: title };
+            return { src: link, alt: title, isVideo: isVideo };
         })
         .filter((image) => image);
 };

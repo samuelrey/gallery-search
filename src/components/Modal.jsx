@@ -1,13 +1,18 @@
 import React from "react";
 
 const Modal = ({ image, onClose }) => {
+    const { src, alt, isVideo } = image;
     return (
         <div className="modal-overlay" onClick={onClose}>
             <button className="close-modal-btn" onClick={onClose}>
                 Close
             </button>
             <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-                <img src={image.src} alt={image.alt} />
+                {!isVideo ? (
+                    <img src={src} alt={alt} />
+                ) : (
+                    <video src={src} alt={alt} autoPlay />
+                )}
             </div>
         </div>
     );
