@@ -12,7 +12,7 @@ const SearchForm = ({ setImages }) => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        setLoading(false);
+        setLoading(true);
         setError(false);
         try {
             const images = await fetchImages(searchQuery);
@@ -33,7 +33,11 @@ const SearchForm = ({ setImages }) => {
                 />
                 <button type="submit">Submit</button>
             </form>
-            {loading && <h2>Loading...</h2>}
+            {loading && (
+                <div>
+                    <h2>Loading...</h2>
+                </div>
+            )}
             {error && (
                 <div>
                     <h2>Oops, there was an issue</h2>
