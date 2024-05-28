@@ -1,6 +1,23 @@
 import React, { useState } from "react";
 import fetchImages from "../services/imgur";
 
+const Loading = () => {
+    return (
+        <div className="search-loading">
+            <h2>Loading...</h2>
+        </div>
+    );
+};
+
+const Error = ({ error }) => {
+    return (
+        <div className="search-error">
+            <h2>Oops, there was an issue</h2>
+            <p>{error}</p>
+        </div>
+    );
+};
+
 const SearchForm = ({ setImages }) => {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
@@ -33,17 +50,8 @@ const SearchForm = ({ setImages }) => {
                 />
                 <button type="submit">Submit</button>
             </form>
-            {loading && (
-                <div>
-                    <h2>Loading...</h2>
-                </div>
-            )}
-            {error && (
-                <div>
-                    <h2>Oops, there was an issue</h2>
-                    <p>{error}</p>
-                </div>
-            )}
+            {loading && <Loading />}
+            {error && <Error error={error} />}
         </div>
     );
 };

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import logo from "./logo.svg";
-import ImageContainer from "./components/ImageContainer";
+import Gallery from "./components/Gallery";
 import SearchForm from "./components/SearchForm";
 import "./App.css";
 
@@ -29,7 +29,7 @@ function App() {
                 <Header />
                 <main className="main">
                     <SearchForm setImages={setImages} />
-                    <ImageContainer images={images} />
+                    <Gallery images={images} />
                 </main>
                 <Footer />
             </div>

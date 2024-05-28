@@ -3,7 +3,7 @@ import GalleryImage from "./GalleryImage";
 import Modal from "./Modal";
 import useModal from "../hooks/useModal";
 
-const ImageContainer = ({ images }) => {
+const Gallery = ({ images }) => {
     const [selectedImage, setSelectedImage] = useState(null);
     const { isOpen, openModal, closeModal } = useModal();
 
@@ -27,4 +27,4 @@ const ImageContainer = ({ images }) => {
     );
 };
 
-export default ImageContainer;
+export default Gallery;
