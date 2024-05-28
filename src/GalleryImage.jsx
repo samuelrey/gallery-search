@@ -11,7 +11,6 @@ const GalleryImage = ({ src, alt, setSelectedImage }) => {
     if (src.includes("mp4")) {
         return (
             <video
-                
                 className="App-image"
                 src={src}
                 alt={alt}
