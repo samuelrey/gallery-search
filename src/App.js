@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import logo from "./logo.svg";
-import ImageContainer from "./ImageContainer";
-import SearchForm from "./SearchForm";
+import ImageContainer from "./components/ImageContainer";
+import SearchForm from "./components/SearchForm";
 import "./App.css";
 
 const Header = () => {

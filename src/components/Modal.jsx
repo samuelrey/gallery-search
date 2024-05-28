@@ -1,6 +1,6 @@
 import React from "react";
 import { useAppContext } from "./context";
-import ExpandedImage from "./ExpandedImage";
+import ExpandedImage from "./components/ExpandedImage";
 
 const Modal = ({ image }) => {
     const { isModalOpen, closeModal } = useAppContext();
