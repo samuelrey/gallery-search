@@ -8,8 +8,15 @@ const Header = () => {
     return (
         <header className="App-header">
             <h2>Fieldwire Image Search</h2>
-            <img src={logo} className="App-logo" alt="logo" />
         </header>
+    );
+};
+
+const Footer = () => {
+    return (
+        <footer className="App-footer">
+            <img src={logo} className="App-logo" alt="logo" />
+        </footer>
     );
 };
 
@@ -17,11 +24,16 @@ function App() {
     const [images, setImages] = useState([]);
 
     return (
-        <div className="App">
-            <Header />
-            <SearchForm setImages={setImages} />
-            <ImageContainer images={images} />
-        </div>
+        <body>
+            <div className="App">
+                <Header />
+                <main className="main">
+                    <SearchForm setImages={setImages} />
+                    <ImageContainer images={images} />
+                </main>
+                <Footer />
+            </div>
+        </body>
     );
 }
 
