@@ -6,22 +6,29 @@ const buildSearchUrl = (query) => {
 };
 
 const transformImages = (imgurImages) => {
-    return imgurImages.map((image) => {
-        let link;
-        const { is_album, images, title } = image;
+    return imgurImages
+        .map((image) => {
+            let link;
+            const { is_album, images, title } = image;
 
-        if (is_album) {
-            if (images[0].type === "video/mp4") {
-                link = images[0].mp4;
+            if (is_album) {
+                try {
+                    if (images[0].type === "video/mp4") {
+                        link = images[0].mp4;
+                    } else {
+                        link = images[0].link;
+                    }
+                } catch (error) {
+                    console.log("Could not determine media type.");
+                    return null;
+                }
             } else {
-                link = images[0].link;
+                link = image.link;
             }
-        } else {
-            link = image.link;
-        }
 
-        return { src: link, alt: title };
-    });
+            return { src: link, alt: title };
+        })
+        .filter((image) => image);
 };
 
 const fetchImages = async (searchQuery) => {
