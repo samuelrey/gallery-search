@@ -11,6 +11,7 @@ const GalleryImage = ({ src, alt, setSelectedImage }) => {
     if (src.includes("mp4")) {
         return (
             <video
+                
                 className="App-image"
                 src={src}
                 alt={alt}
@@ -19,7 +20,7 @@ const GalleryImage = ({ src, alt, setSelectedImage }) => {
         );
     }
     return (
-        <img className="App-image" src={src} alt={alt} onClick={handleClick} />
+        <img className="App-image" src={src} alt={alt} onClick={handleClick} loading="lazy" />
     );
 };
 
