@@ -1,17 +1,12 @@
 import React from "react";
-import { useAppContext } from "../context/context";
 import ExpandedImage from "./ExpandedImage";
 
-const Modal = ({ image }) => {
-    const { isModalOpen, closeModal } = useAppContext();
-
+const Modal = ({ image, onClose }) => {
     return (
-        <div
-            className={`${isModalOpen ? "modal-overlay show-modal" : "modal-overlay"}`}
-        >
+        <div className="modal-overlay show-modal" onClick={onClose}>
             <div>
                 <ExpandedImage {...image} />
-                <button className="close-modal-btn" onClick={closeModal}>
+                <button className="close-modal-btn" onClick={onClose}>
                     Close
                 </button>
             </div>

@@ -1,9 +1,16 @@
 import React, { useState } from "react";
 import GalleryImage from "./GalleryImage";
 import Modal from "./Modal";
+import useModal from "../hooks/useModal";
 
 const ImageContainer = ({ images }) => {
-    const [selectedImage, setSelectedImage] = useState({ src: "", alt: "" });
+    const [selectedImage, setSelectedImage] = useState(null);
+    const { isOpen, openModal, closeModal } = useModal();
+
+    const handleImageClick = (image) => {
+        setSelectedImage(image);
+        openModal();
+    }
 
     return (
         <div>
@@ -11,11 +18,13 @@ const ImageContainer = ({ images }) => {
                 return (
                     <GalleryImage
                         {...image}
-                        setSelectedImage={setSelectedImage}
+                        onClick={() => handleImageClick(image)}
                     />
                 );
             })}
-            <Modal image={selectedImage} />
+            {isOpen && (
+                <Modal image={selectedImage} onClose={closeModal} />
+            )}
         </div>
     );
 };
