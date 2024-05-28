@@ -3,7 +3,7 @@ import fetchImages from "../services/imgur";
 
 const Loading = () => {
     return (
-        <div className="search-loading">
+        <div data-testid="search-loading" className="search-loading">
             <h2>Loading...</h2>
         </div>
     );
@@ -11,7 +11,7 @@ const Loading = () => {
 
 const Error = ({ error }) => {
     return (
-        <div className="search-error">
+        <div data-testid="search-error" className="search-error">
             <h2>Oops, there was an issue</h2>
             <p>{error}</p>
         </div>
@@ -42,7 +42,7 @@ const SearchForm = ({ setImages }) => {
     };
 
     return (
-        <div className="search-container">
+        <div data-testid="search-form" className="search-container">
             <form className="search-form" onSubmit={handleSubmit}>
                 <input
                     className="search-input"

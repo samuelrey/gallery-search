@@ -13,7 +13,7 @@ const Gallery = ({ images }) => {
     };
 
     return (
-        <div>
+        <div data-testid="gallery">
             {images.map((image) => {
                 return (
                     <GalleryImage
