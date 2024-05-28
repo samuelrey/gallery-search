@@ -13,6 +13,7 @@ const SearchForm = ({ setImages }) => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         setLoading(false);
+        setError(false);
         try {
             const images = await fetchImages(searchQuery);
             setImages(images);

@@ -37,14 +37,14 @@
     background: rgba(0, 0, 0, 0.5);
     display: grid;
     place-items: center;
-    transition: var(--transition);
-    visibility: hidden;
-    z-index: -1;
 }
 
-.show-modal {
-    visibility: visible;
-    z-index: 10;
+.modal-content {
+    height: 80vmin;
+    width: 80vmin;
+    padding: 20px;
+    border-radius: 8px;
+    position: relative;
 }
 
 .close-modal-btn {

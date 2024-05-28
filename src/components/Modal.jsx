@@ -1,11 +1,10 @@
 import React from "react";
-import ExpandedImage from "./ExpandedImage";
 
 const Modal = ({ image, onClose }) => {
     return (
-        <div className="modal-overlay show-modal" onClick={onClose}>
-            <div>
-                <ExpandedImage {...image} />
+        <div className="modal-overlay" onClick={onClose}>
+            <div className="modal-content">
+                <img src={image.src} alt={image.alt} />
                 <button className="close-modal-btn" onClick={onClose}>
                     Close
                 </button>
