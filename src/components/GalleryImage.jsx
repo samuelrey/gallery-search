@@ -1,5 +1,5 @@
 import React from "react";
-import { useAppContext } from "./context";
+import { useAppContext } from "../context/context";
 
 const GalleryImage = ({ src, alt, setSelectedImage }) => {
     const { openModal } = useAppContext();
