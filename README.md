@@ -35,7 +35,13 @@ Click on an image to open it in a larger view.
 
 -   Transform data from the API to a normalized data structure. The result is the ImageContainer can focus on presentation.
 -   Open image in modal on click. The result is that the user can have a larger view of the image and ImageContainer can keep the search results in memory.
+-   Use custom hook instead of context to manage Modal state. The result is simpler and more narrowly focused logic.
 
 ## Areas for Improvement
 
-The Imgur API supports pagination.
+-   Implement pagination in order to allow users to view more images per their search query.
+-   Use component library like Material UI in order to have consistent design language.
+-   Include left-right navigation from modal in order reduce number of clicks between the expanded view of two images.
+-   Render default image if none is available.
+-   Display alt text beneath image on hover in order to describe the image in more detail.
+-   Implement sort and filter that leverages the Imgur gallery API.

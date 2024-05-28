@@ -4,7 +4,7 @@ const Modal = ({ image, onClose }) => {
     const { src, alt, isVideo } = image;
     return (
         <div className="modal-overlay" onClick={onClose}>
-            <button className="close-modal-btn" onClick={onClose}>
+            <button className="modal-close-button" onClick={onClose}>
                 Close
             </button>
             <div className="modal-content" onClick={(e) => e.stopPropagation()}>

@@ -35,10 +35,6 @@
     justify-content: center;
 }
 
-.App-link {
-    color: #61dafb;
-}
-
 .search-loading {
     color: #61dafb;
 }
@@ -52,7 +48,6 @@
     width: 40vmin;
     padding-bottom: 2vmin;
     margin: 2vmin;
-    /* border: 2px solid #0984fb; */
 }
 
 .App-image:hover {
@@ -87,7 +82,7 @@
     object-fit: contain;
 }
 
-.close-modal-btn {
+.modal-close-button {
     position: absolute;
     top: 1rem;
     right: 1rem;
