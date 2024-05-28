@@ -42,13 +42,16 @@ const SearchForm = ({ setImages }) => {
     };
 
     return (
-        <div>
-            <form onSubmit={handleSubmit}>
+        <div className="search-container">
+            <form className="search-form" onSubmit={handleSubmit}>
                 <input
-                    placeholder="Search for an image"
+                    className="search-input"
+                    placeholder="Search..."
                     onChange={handleChange}
                 />
-                <button type="submit">Submit</button>
+                <button className="search-button" type="submit">
+                    Search
+                </button>
             </form>
             {loading && <Loading />}
             {error && <Error error={error} />}
