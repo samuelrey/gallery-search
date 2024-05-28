@@ -26,10 +26,10 @@ const SearchForm = ({ setImages }) => {
     }
 
     return (
-        <div>
+        <form onSubmit={handleSubmit}>
             <input placeholder="Search for an image" onChange={handleChange} />
-            <button onClick={handleSubmit}>Submit</button>
-        </div>
+            <button type="submit">Submit</button>
+        </form>
     );
 };
 
