@@ -11,7 +11,7 @@ export const testImages = [
     },
 ];
 
-export const fetchImages = async (searchQuery) => {
+export const mockFetchImages = async (searchQuery) => {
     switch (searchQuery) {
         case "ninja turtles": {
             return testImages;

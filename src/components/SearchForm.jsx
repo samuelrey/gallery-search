@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import fetchImages from "../services/imgur";
 
 const Loading = () => {
     return (
@@ -18,10 +17,13 @@ const Error = ({ error }) => {
     );
 };
 
-const SearchForm = ({ setImages }) => {
+const SearchForm = ({ fetchImages, setImages }) => {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
     const [searchQuery, setSearchQuery] = useState("");
+    // console.log(fetchImages);
+    // console.log(setImages);
+    // console.log(searchQuery);
 
     const handleChange = (e) => {
         setSearchQuery(e.target.value);
@@ -33,6 +35,7 @@ const SearchForm = ({ setImages }) => {
         setError(false);
         try {
             const images = await fetchImages(searchQuery);
+            console.log(images);
             setImages(images);
         } catch (error) {
             setError("Error searching images: " + error);
@@ -45,11 +48,16 @@ const SearchForm = ({ setImages }) => {
         <div data-testid="search-form" className="search-container">
             <form className="search-form" onSubmit={handleSubmit}>
                 <input
+                    data-testid="search-input"
                     className="search-input"
                     placeholder="Search..."
                     onChange={handleChange}
                 />
-                <button className="search-button" type="submit">
+                <button
+                    data-testid="search-button"
+                    className="search-button"
+                    type="submit"
+                >
                     Search
                 </button>
             </form>

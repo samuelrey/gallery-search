@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import logo from "./logo.svg";
+import fetchImages from "./services/imgur";
 import Gallery from "./components/Gallery";
 import SearchForm from "./components/SearchForm";
 import "./App.css";
@@ -28,7 +29,10 @@ function App() {
             <div className="App">
                 <Header />
                 <main className="main">
-                    <SearchForm setImages={setImages} />
+                    <SearchForm
+                        fetchImages={fetchImages}
+                        setImages={setImages}
+                    />
                     <Gallery images={images} />
                 </main>
                 <Footer />

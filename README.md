@@ -36,6 +36,7 @@ Click on an image to open it in a larger view.
 -   Transform data from the API to a normalized data structure. The result is the ImageContainer can focus on presentation.
 -   Open image in modal on click. The result is that the user can have a larger view of the image and ImageContainer can keep the search results in memory.
 -   Use custom hook instead of context to manage Modal state. The result is simpler and more narrowly focused logic.
+-   Inject Imgur service as a prop to the SearchForm. The result is that SearchForm will be testable and the backing service can be swapped.
 
 ## Areas for Improvement
 
