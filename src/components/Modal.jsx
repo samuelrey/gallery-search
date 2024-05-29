@@ -9,9 +9,14 @@ const Modal = ({ image, onClose }) => {
             </button>
             <div className="modal-content" onClick={(e) => e.stopPropagation()}>
                 {!isVideo ? (
-                    <img src={src} alt={alt} />
+                    <img data-testid="modal-image" src={src} alt={alt} />
                 ) : (
-                    <video src={src} alt={alt} autoPlay />
+                    <video
+                        data-testid="modal-image"
+                        src={src}
+                        alt={alt}
+                        autoPlay
+                    />
                 )}
             </div>
         </div>

@@ -4,6 +4,7 @@ const GalleryImage = ({ image, onClick }) => {
     const { src, alt, isVideo } = image;
     return !isVideo ? (
         <img
+            data-testid="gallery-image"
             className="App-image"
             src={src}
             alt={alt}
@@ -11,7 +12,13 @@ const GalleryImage = ({ image, onClick }) => {
             loading="lazy"
         />
     ) : (
-        <video className="App-image" src={src} alt={alt} onClick={onClick} />
+        <video
+            data-testid="gallery-image"
+            className="App-image"
+            src={src}
+            alt={alt}
+            onClick={onClick}
+        />
     );
 };
 
