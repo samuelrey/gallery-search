@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import GalleryImage from "./GalleryImage";
 import Modal from "./Modal";
 import useModal from "../hooks/useModal";
+import Tag from "./Tag";
 
 const getTagsSortedByOccurence = (images) => {
     const tagByCount = new Map();
@@ -60,11 +61,14 @@ const Gallery = ({ images }) => {
     return (
         <div data-testid="gallery">
             <div>
-                {tags.map(({ display_name, count }) => {
+                {tags.map((tag) => {
                     return (
-                        <button onClick={() => handleTagClick(display_name)}>
-                            {display_name}: {count}
-                        </button>
+                        <Tag
+                            tag={tag}
+                            onClick={() => {
+                                handleTagClick(tag.display_name);
+                            }}
+                        />
                     );
                 })}
             </div>
