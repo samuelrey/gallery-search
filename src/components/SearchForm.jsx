@@ -21,9 +21,6 @@ const SearchForm = ({ fetchImages, setImages }) => {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
     const [searchQuery, setSearchQuery] = useState("");
-    // console.log(fetchImages);
-    // console.log(setImages);
-    // console.log(searchQuery);
 
     const handleChange = (e) => {
         setSearchQuery(e.target.value);
@@ -35,7 +32,6 @@ const SearchForm = ({ fetchImages, setImages }) => {
         setError(false);
         try {
             const images = await fetchImages(searchQuery);
-            console.log(images);
             setImages(images);
         } catch (error) {
             setError("Error searching images: " + error);
