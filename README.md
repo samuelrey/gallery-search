@@ -1,6 +1,6 @@
-# Fieldwire Image Search
+# Image Search
 
-The Fieldwire image search app allows users to search and view images.
+The image search app allows users to search and view images.
 
 ## Usage
 

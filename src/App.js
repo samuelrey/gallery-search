@@ -8,7 +8,7 @@ import "./App.css";
 const Header = () => {
     return (
         <header className="App-header">
-            <h2>Fieldwire Image Search</h2>
+            <h2>Image Search</h2>
         </header>
     );
 };
