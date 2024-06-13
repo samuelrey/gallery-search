@@ -17,10 +17,11 @@ const getTagsSortedByOccurence = (images) => {
     });
 
     return [...tagByCount.entries()]
-        .sort((a, b) => b[1] - a[1])
         .map(([display_name, count]) => {
             return { display_name: display_name, count: count };
-        });
+        })
+        .sort((a, b) => b.count - a.count)
+        .filter(({ count }) => count > 1);
 };
 
 const filterImagesByTag = (images, selectedTag) => {
